@@ -12,7 +12,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -22,4 +22,4 @@ jobs:
       # RUN POWERSHELL SCRIPT
       - name: RUN POWERSHELL SCRIPT
         shell: pwsh
-        run: .\Create_Space_Q@Q_TEST_1.PS1
+        run: pwsh -command ".\$GITHUB_WORKSPACE\Create_Space_Q@Q_TEST_1.PS1"
