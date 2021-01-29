@@ -22,4 +22,4 @@ jobs:
       # RUN POWERSHELL SCRIPT
       - name: RUN POWERSHELL SCRIPT
         shell: pwsh
-        run: .\build.ps1
+        run: .\Create_Space_Q@Q_TEST_1.PS1
