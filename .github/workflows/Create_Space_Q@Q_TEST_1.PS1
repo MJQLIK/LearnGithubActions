@@ -1,1 +1,5 @@
-Write-Output 'Hello World!'
+<#
+    Simple Hello-World PowerShell script
+#>
+
+Write-Output -InputObject ('Hello World')
