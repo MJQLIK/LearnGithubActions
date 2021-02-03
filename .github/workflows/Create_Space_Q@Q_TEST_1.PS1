@@ -1,6 +1,3 @@
-Get-ExecutionPolicy
-Set-ExecutionPolicy AllSigned
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 choco install qlik-cli -Source https://www.nuget.org/api/v2
 qlik context create SENSETEST_EU --server https://sensetest.eu.qlikcloud.com --api-key eyJhbGciOiJFUzM4NCIsImtpZCI6IjczOTYzNjZkLTRjZWYtNDZiMS1hZDhhLTNkZDI2OTMyMTk4NSIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoiMXVocmdSaFF0VHlKWGhDLUFFdzlpRlZzcnE4NkJEMnEiLCJqdGkiOiI3Mzk2MzY2ZC00Y2VmLTQ2YjEtYWQ4YS0zZGQyNjkzMjE5ODUiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiZDJhN2ZDZzczRHphWUt4elBSVjlnWXhLSFpFMEx3bGoifQ.unAolbYdsBQyYNkhGfeEvueSP0-MUSMZrGbh7YxljEdgr6QjvrpPDClo92s-PPiTLH7w4xDpJvo_D5JihezgbXDw98tGMW4eJawBsfnCXtJtujwQ5_cvU6WvyrTY6pUO
 qlik context use SENSETEST_EU
