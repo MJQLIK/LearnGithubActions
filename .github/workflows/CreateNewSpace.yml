@@ -4,6 +4,9 @@ name: Create_Space_SenseTest.EU.QlikCloud
 
 # Controls when the action will run. 
 on:
+  push:
+    branches: main
+    paths: '**.ps1'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -22,4 +25,5 @@ jobs:
       # RUN POWERSHELL SCRIPT
       - name: RUN POWERSHELL SCRIPT
         shell: pwsh
-        run: pwsh -command ".\.github\workflows\Create_Space_Q@Q_TEST_1.PS1"
+        run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
+        #run: pwsh -command ".\.github\workflows\Create_Space_Q@Q_TEST_1.PS1"
