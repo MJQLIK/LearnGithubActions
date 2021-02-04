@@ -2,27 +2,28 @@
 
 name: Create New Space
 
-# Controls when the action will run. 
+# SET ACTION TO ONLY RUN ON A PUSH TO MAIN WHERE THE FILE IS A PS1 FILE IN THE CreateNewSpaces FOLDER
 on:
-  #push:
-    #branches: main
-    #paths: '**.ps1'
-  # Allows you to run this workflow manually from the Actions tab
+  push:
+    branches: main    
+    paths: 'CreateNewSpaces/*.ps1'
+
+  # ALLOWS YOU TO RUN THIS WORKFLOW MANUALLY FROM THE ACTIONS TAB
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A WORKFLOW RUN IS MADE UP OF ONE OR MORE JOBS THAT CAN RUN SEQUENTIALLY OR IN PARALLEL
 jobs:
 
-  # This workflow contains a single job called "create_new_space"
+  # THIS WORKFLOW CONTAINS A SINGLE JOB CALLED "create_new_space"
   create_new_space:
 
-    # The type of runner that the job will run on
+    # THE TYPE OF RUNNER THAT THE JOB WILL RUN ON
     runs-on: windows-latest
     
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # STEPS REPRESENT A SEQUENCE OF TASKS THAT WILL BE EXECUTED AS PART OF THE JOB
     steps:
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # CHECKS-OUT YOUR REPOSITORY UNDER $GITHUB_WORKSPACE, SO YOUR JOB CAN ACCESS IT
       - uses: actions/checkout@v2
 
       # RUN POWERSHELL SCRIPT
@@ -31,13 +32,10 @@ jobs:
         # USE POWERSHELL SHELL
         shell: pwsh
 
-        # INCLUDE GITHUB SECRET FOR THE REQUIRED API KEY
+        # INCLUDE GITHUB SECRET AS POWERSHELL ENV VARIABLE FOR THE REQUIRED API KEY
         env:
-          QCS_SERVER_URL: "https://sensetest.eu.qlikcloud.com"
+          QCS_SERVER_URL: ${{ secrets.SENSETEST_EU_URL }}
           QCS_SERVER_API_KEY: ${{ secrets.SENSETEST_EU_MJQ_API_KEY }}
-        #run: |
-        #  Write-Host "$env:QCS_SERVER_URL"
-        #  Write-Host "$env:QCS_SERVER_API_KEY"
 
         # USE RUN COMMAND TO TELL POWERSHELL WHAT TO ACTUALLY DO - WHICH IS RUN THIS PS1
         run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
