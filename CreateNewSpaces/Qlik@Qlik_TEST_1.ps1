@@ -1,5 +1,11 @@
+# USE CHOCOLATEY TO INSTALL QLIK-CLI POWERSHELL MODULE
 choco install qlik-cli -Source https://www.nuget.org/api/v2
-qlik context create SENSETEST_EU --server https://sensetest.eu.qlikcloud.com --api-key eyJhbGciOiJFUzM4NCIsImtpZCI6IjczOTYzNjZkLTRjZWYtNDZiMS1hZDhhLTNkZDI2OTMyMTk4NSIsInR5cCI6IkpXVCJ9.eyJzdWJUeXBlIjoidXNlciIsInRlbmFudElkIjoiMXVocmdSaFF0VHlKWGhDLUFFdzlpRlZzcnE4NkJEMnEiLCJqdGkiOiI3Mzk2MzY2ZC00Y2VmLTQ2YjEtYWQ4YS0zZGQyNjkzMjE5ODUiLCJhdWQiOiJxbGlrLmFwaSIsImlzcyI6InFsaWsuYXBpL2FwaS1rZXlzIiwic3ViIjoiZDJhN2ZDZzczRHphWUt4elBSVjlnWXhLSFpFMEx3bGoifQ.unAolbYdsBQyYNkhGfeEvueSP0-MUSMZrGbh7YxljEdgr6QjvrpPDClo92s-PPiTLH7w4xDpJvo_D5JihezgbXDw98tGMW4eJawBsfnCXtJtujwQ5_cvU6WvyrTY6pUO
+
+# USE QLIK-CLI TO CREATE A NEW CONTEXT - TO SENSETEST.EU
+qlik context create SENSETEST_EU --server $ENV:QCS_SERVER_URL --api-key $ENV:QCS_SERVER_API_KEY
+
+# TELL QLIK-CLI TO USE THE SENSETEST.EU CONTEXT WE JUST CREATED
 qlik context use SENSETEST_EU
+
+# USE QLIK-CLI TO CREATE A NEW SPACE
 qlik space create --name "Qlik@Qlik_TEST_1" --type shared
-#adding something
