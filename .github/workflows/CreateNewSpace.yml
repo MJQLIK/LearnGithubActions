@@ -12,18 +12,22 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+
+  # This workflow contains a single job called "create_new_space"
+  create_new_space:
+
     # The type of runner that the job will run on
     runs-on: windows-latest
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       # RUN POWERSHELL SCRIPT
       - name: RUN POWERSHELL SCRIPT
-        shell: pwsh
+      - shell: pwsh
+        env:
+          API_KEY: ${{ secrets.SENSETEST_EU_MJQ_API_KEY }}
         run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
-        #run: pwsh -command ".\.github\workflows\Create_Space_Q@Q_TEST_1.PS1"
