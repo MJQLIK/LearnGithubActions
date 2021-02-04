@@ -9,3 +9,5 @@ qlik context use SENSETEST_EU
 
 # USE QLIK-CLI TO CREATE A NEW SPACE
 qlik space create --name "Qlik@Qlik_TEST_1" --type shared
+
+# JUST A COMMENT
