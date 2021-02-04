@@ -33,9 +33,11 @@ jobs:
 
         # INCLUDE GITHUB SECRET FOR THE REQUIRED API KEY
         env:
-          API_KEY: ${{ secrets.SENSETEST_EU_MJQ_API_KEY }}
+          QCS_SERVER_URL: "https://sensetest.eu.qlikcloud.com"
+          QCS_SERVER_API_KEY: ${{ secrets.SENSETEST_EU_MJQ_API_KEY }}
         run: |
-          Write-Host "$env:SENSETEST_EU_MJQ_API_KEY"
+          Write-Host "$env:QCS_SERVER_URL"
+          Write-Host "$env:QCS_SERVER_API_KEY"
 
         # USE RUN COMMAND TO TELL POWERSHELL WHAT TO ACTUALLY DO - WHICH IS RUN THIS PS1
         #run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
