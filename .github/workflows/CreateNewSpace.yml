@@ -1,12 +1,12 @@
-# This is a basic workflow to help you get started with Actions
+# THIS IS A NEW WORKFLOW TO CREATE A NEW SPACE ON QLIKCLOUD
 
 name: Create_Space_SenseTest.EU.QlikCloud
 
 # Controls when the action will run. 
 on:
-  push:
-    branches: main
-    paths: '**.ps1'
+  #push:
+    #branches: main
+    #paths: '**.ps1'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -27,7 +27,15 @@ jobs:
 
       # RUN POWERSHELL SCRIPT
       - name: RUN POWERSHELL SCRIPT
+
+        # USE POWERSHELL SHELL
       - shell: pwsh
+
+        # INCLUDE GITHUB SECRET FOR THE REQUIRED API KEY
         env:
           API_KEY: ${{ secrets.SENSETEST_EU_MJQ_API_KEY }}
-        run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
+        run: |
+          Write-Host "$env:SENSETEST_EU_MJQ_API_KEY"
+
+        # USE RUN COMMAND TO TELL POWERSHELL WHAT TO ACTUALLY DO - WHICH IS RUN THIS PS1
+        #run: pwsh -command ".\CreateNewSpaces\Qlik@Qlik_TEST_1.ps1"
