@@ -6,7 +6,7 @@ name: Create New Space
 on:
   push:
     branches: main    
-    paths: 'CreateNewSpaces/Qlik@Qlik_TEST_1.ps1'
+    paths: 'CreateNewSpaces/**.ps1'
 
   # ALLOWS YOU TO RUN THIS WORKFLOW MANUALLY FROM THE ACTIONS TAB
   workflow_dispatch:
