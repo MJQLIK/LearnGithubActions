@@ -1,6 +1,6 @@
 # THIS IS A NEW WORKFLOW TO CREATE A NEW SPACE ON QLIKCLOUD
 
-name: Create New Space On QCS
+name: Create New Space
 
 # SET ACTION TO ONLY RUN ON A PUSH TO MAIN WHERE THE FILE IS A PS1 FILE IN THE CreateNewSpaces FOLDER
 on:
@@ -16,9 +16,6 @@ jobs:
 
   # THIS WORKFLOW CONTAINS A SINGLE JOB CALLED "create_new_space"
   create_new_space:
-    
-    # NAME OF THE JOB
-    name: CREATE NEW SPACE
 
     # THE TYPE OF RUNNER THAT THE JOB WILL RUN ON
     runs-on: windows-latest
@@ -27,7 +24,6 @@ jobs:
     steps:
 
       # CHECKS-OUT YOUR REPOSITORY UNDER $GITHUB_WORKSPACE, SO YOUR JOB CAN ACCESS IT
-      - name: CHECKOUT REPO
       - uses: actions/checkout@v2
 
       # RUN POWERSHELL SCRIPT
